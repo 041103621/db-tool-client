@@ -1,9 +1,9 @@
 {
-  "name": "element-plus-vite-starter",
+  "name": "db-tool-client",
   "type": "module",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@9.15.0",
+  "packageManager": "pnpm@10.7.1",
   "license": "MIT",
   "homepage": "https://vite-starter.element-plus.org",
   "repository": {
