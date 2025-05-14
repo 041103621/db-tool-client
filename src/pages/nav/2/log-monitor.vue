@@ -251,6 +251,9 @@ onUnmounted(() => {
 .container {
   padding: 20px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 120px); /* 减去上下padding */
 }
 
 .breadcrumb-container {
@@ -293,6 +296,9 @@ h1 {
 .log-container {
   position: relative;
   margin-bottom: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .log-content {
@@ -305,8 +311,8 @@ h1 {
   line-height: 1.5;
   white-space: pre-wrap;
   overflow-y: auto;
-  max-height: 600px;
-  min-height: 400px;
+  flex: 1;
+  min-height: 0; /* 让flex:1生效 */
   text-align: left;
 }
 
