@@ -28,35 +28,41 @@ function handleClose(key: string, keyPath: string[]) {
     <el-sub-menu index="1">
       <template #title>
         <el-icon>
-          <!-- <Location /> -->
           <i i-ri-database-2-line />
         </el-icon>
-        <span>Oracle</span>
+        <span>Business</span>
       </template>
       <el-menu-item-group>
-        <el-menu-item index="/nav/1/item-1">
-          item one
+        <el-menu-item index="/nav/1/emp">
+          Employee
         </el-menu-item>
-        <el-menu-item index="/nav/1/item-2">
-          item two
+        <el-menu-item index="/nav/1/dept">
+          Department
+        </el-menu-item>
+        <el-menu-item index="/nav/1/salgrade">
+          Salary Grade
         </el-menu-item>
       </el-menu-item-group>
     </el-sub-menu>
-    <el-menu-item index="/nav/2">
-      <el-icon>
-        <i i-ri-database-2-line />
-      </el-icon>
+    <el-sub-menu index="2">
       <template #title>
-        PostgreSQL
+        <el-icon>
+          <!-- <Location /> -->
+          <i i-ri-database-2-line />
+        </el-icon>
+        <span>Database</span>
       </template>
-    </el-menu-item>
-    <el-menu-item index="/nav/4">
-      <el-icon>
-        <i i-ri-database-2-line />
-      </el-icon>
-      <template #title>
-        MongoDB
-      </template>
-    </el-menu-item>
+      <el-menu-item-group>
+        <el-menu-item index="/nav/2/oracle">
+          Oracle
+        </el-menu-item>
+        <el-menu-item index="/nav/2/postgresql">
+          PostgreSQL
+        </el-menu-item>
+        <el-menu-item index="/nav/2/mongodb">
+          MongoDB
+        </el-menu-item>
+      </el-menu-item-group>
+    </el-sub-menu>
   </el-menu>
 </template>

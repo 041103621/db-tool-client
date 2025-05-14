@@ -9,13 +9,13 @@
     <a href="https://element-plus.org/" target="_blank">
       <img src="/element-plus-logo-small.svg" class="logo element-plus" alt="Element Plus logo">
     </a> -->
-    <a href="/nav/1/item-1">
+    <a href="/nav/2/oracle">
       <img src="/oracle1.svg" class="logo" width="200" alt="Oracle logo">
     </a>
-    <a href="/nav/2">
+    <a href="/nav/2/postgresql">
       <img src="/postgresql.svg" class="logo" alt="PostgreSQL logo">
     </a>
-    <a href="/nav/3">
+    <a href="/nav/2/mongodb">
       <img src="/mongodb.svg" class="logo" alt="MongoDB logo">
     </a>
   </div>
