@@ -12,7 +12,7 @@
     <a href="/nav/1/emp">
       <img src="/employee-savings.svg" class="logo" width="100" alt="Oracle logo">
     </a>
-    <a href="/nav/2/oracle">
+    <a href="/nav/2/log-monitor">
       <img src="/oracle1.svg" class="logo" width="200" alt="Oracle logo">
     </a>
     <!-- <a href="/nav/2/postgresql">
