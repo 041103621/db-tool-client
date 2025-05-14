@@ -1,4 +1,6 @@
 <script setup>
+// 引入图标
+import { Bottom, Delete, Download } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
 import { io } from 'socket.io-client'
 import { onMounted, onUnmounted, ref } from 'vue'
@@ -180,89 +182,81 @@ onUnmounted(() => {
 
 <template>
   <div class="container">
-    <div class="card">
-      <!-- 添加面包屑导航 -->
-      <div class="breadcrumb-container">
-        <el-breadcrumb separator="/">
-          <el-breadcrumb-item :to="{ path: '/' }">
-            homepage
-          </el-breadcrumb-item>
-          <el-breadcrumb-item>Log Monitor</el-breadcrumb-item>
-        </el-breadcrumb>
-      </div>
+    <!-- <div class="card"> -->
+    <!-- 添加面包屑导航 -->
+    <div class="breadcrumb-container">
+      <el-breadcrumb separator="/">
+        <el-breadcrumb-item :to="{ path: '/' }">
+          homepage
+        </el-breadcrumb-item>
+        <el-breadcrumb-item>Log Monitor</el-breadcrumb-item>
+      </el-breadcrumb>
+    </div>
 
-      <h1>Log Monitor</h1>
-      <div class="controls">
-        <div>
-          <label for="connection-status">Status:</label>
-          <span class="status" :class="[connected ? 'connected' : 'disconnected']">
-            {{ connected ? 'Connected' : 'Disconnected' }}
-          </span>
-        </div>
-        <el-button type="primary" :disabled="connected" @click="connectSocket">
-          Connect
-        </el-button>
-        <el-button type="danger" :disabled="!connected" @click="disconnectSocket">
-          Disconnect
-        </el-button>
-        <el-button type="success" @click="refreshLog">
-          Refresh
-        </el-button>
-        <div>
-          <label for="max-lines">Display Lines:</label>
-          <el-select v-model="maxLines" @change="startLogMonitor">
-            <el-option :value="100" label="100" />
-            <el-option :value="500" label="500" />
-            <el-option :value="1000" label="1000" />
-            <el-option :value="2000" label="2000" />
-          </el-select>
-        </div>
-        <div>
-          <label for="update-interval">Update Interval(s):</label>
-          <el-input-number
-            v-model="updateInterval"
-            :min="1"
-            :max="60"
-            @change="startLogMonitor"
-          />
-        </div>
-        <el-button type="danger" @click="clearLog">
-          Clear
-        </el-button>
-        <el-button type="primary" @click="scrollToBottom">
-          Scroll to Bottom
-        </el-button>
-        <el-button type="primary" @click="downloadLog">
-          Download Log
-        </el-button>
+    <div class="controls">
+      <div>
+        <label for="connection-status">Status:</label>
+        <span class="status" :class="[connected ? 'connected' : 'disconnected']">
+          {{ connected ? 'Connected' : 'Disconnected' }}
+        </span>
       </div>
-
-      <div class="log-info">
-        <div>
-          <strong>File Path:</strong> <span>{{ logInfo.filePath || '-' }}</span>
-        </div>
-        <div>
-          <strong>File Size:</strong> <span>{{ logInfo.fileSize || '-' }}</span>
-        </div>
-        <div>
-          <strong>Last Modified:</strong> <span>{{ logInfo.lastModified || '-' }}</span>
-        </div>
-        <div>
-          <strong>Last Update:</strong> <span>{{ logInfo.lastUpdate || '-' }}</span>
-        </div>
+      <el-button type="primary" :disabled="connected" @click="connectSocket">
+        Connect
+      </el-button>
+      <el-button type="danger" :disabled="!connected" @click="disconnectSocket">
+        Disconnect
+      </el-button>
+      <el-button type="success" @click="refreshLog">
+        Refresh
+      </el-button>
+      <div>
+        <label for="max-lines">Display Lines:</label>
+        <el-select v-model="maxLines" @change="startLogMonitor">
+          <el-option :value="100" label="100" />
+          <el-option :value="500" label="500" />
+          <el-option :value="1000" label="1000" />
+          <el-option :value="2000" label="2000" />
+        </el-select>
       </div>
-
-      <div class="log-container">
-        <pre ref="logContentEl" class="log-content">{{ logContent }}</pre>
+      <div>
+        <label for="update-interval">Update Interval(s):</label>
+        <el-input-number v-model="updateInterval" :min="1" :max="60" @change="startLogMonitor" />
       </div>
     </div>
+
+    <div class="log-info">
+      <div>
+        <strong>File Path:</strong> <span>{{ logInfo.filePath || '-' }}</span>
+      </div>
+      <div>
+        <strong>File Size:</strong> <span>{{ logInfo.fileSize || '-' }}</span>
+      </div>
+      <div>
+        <strong>Last Modified:</strong> <span>{{ logInfo.lastModified || '-' }}</span>
+      </div>
+      <div>
+        <strong>Last Update:</strong> <span>{{ logInfo.lastUpdate || '-' }}</span>
+      </div>
+    </div>
+
+    <div class="log-container">
+      <pre ref="logContentEl" class="log-content">{{ logContent }}</pre>
+
+      <!-- 右下角操作按钮 -->
+      <div class="action-buttons">
+        <el-button circle type="primary" :icon="Bottom" title="Scroll to Bottom" @click="scrollToBottom" />
+        <el-button circle type="success" :icon="Download" title="Download Log" @click="downloadLog" />
+        <el-button circle type="danger" :icon="Delete" title="Clear Screen" @click="clearLog" />
+      </div>
+    </div>
+    <!-- </div> -->
   </div>
 </template>
 
 <style scoped>
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
+  padding: 20px;
+  position: relative;
 }
 
 .breadcrumb-container {
@@ -303,6 +297,7 @@ h1 {
 
 .log-container {
   position: relative;
+  margin-bottom: 20px;
 }
 
 .log-content {
@@ -317,6 +312,18 @@ h1 {
   overflow-y: auto;
   max-height: 600px;
   min-height: 400px;
+  text-align: left;
+}
+
+.action-buttons {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  display: flex;
+  gap: 10px;
+  background-color: rgba(40, 44, 52, 0.6);
+  padding: 8px;
+  border-radius: 25px;
 }
 
 .controls {
@@ -347,13 +354,13 @@ h1 {
 }
 
 .status.connected {
-  background-color: #4caf50;
-  color: white;
+  color: #4caf50;
+  /* color: white; */
 }
 
 .status.disconnected {
-  background-color: #f44336;
-  color: white;
+  color: #f44336;
+  /* color: white; */
 }
 
 @media (max-width: 768px) {
