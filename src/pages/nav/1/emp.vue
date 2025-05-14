@@ -1,7 +1,9 @@
 <script setup>
 import { ElMessage } from 'element-plus'
 import { onMounted, ref } from 'vue'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const employeeList = ref([])
 const loading = ref(false)
 
@@ -36,6 +38,16 @@ onMounted(() => {
 
 <template>
   <div class="emp-container">
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb-container">
+      <el-breadcrumb separator="/">
+        <el-breadcrumb-item :to="{ path: '/' }">homepage</el-breadcrumb-item>
+        <el-breadcrumb-item>
+          <a href="/">Employee Management</a>
+        </el-breadcrumb-item>
+      </el-breadcrumb>
+    </div>
+
     <div class="query-section">
       <el-button type="primary" @click="fetchEmployeeData">
         Query
@@ -76,5 +88,15 @@ onMounted(() => {
 
 :deep(.el-table th.el-table__cell) {
   font-weight: bold;
+}
+
+.breadcrumb-container {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ebeef5;
+}
+
+:deep(.el-breadcrumb__item) {
+  cursor: pointer;
 }
 </style>

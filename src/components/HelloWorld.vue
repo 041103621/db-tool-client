@@ -7,7 +7,7 @@ defineProps<{ msg: string }>()
     {{ msg }}
   </h1>
 
-  <em>Click the logo to start operation</em>
+  <!-- <em>Click the logo to start operation</em> -->
   <!-- <p>
     Oracle Operation
     <a href="/nav/1">Click here</a>

@@ -36,12 +36,12 @@ function handleClose(key: string, keyPath: string[]) {
         <el-menu-item index="/nav/1/emp">
           Employee
         </el-menu-item>
-        <el-menu-item index="/nav/1/dept">
+        <!-- <el-menu-item index="/nav/1/dept">
           Department
         </el-menu-item>
         <el-menu-item index="/nav/1/salgrade">
           Salary Grade
-        </el-menu-item>
+        </el-menu-item> -->
       </el-menu-item-group>
     </el-sub-menu>
     <el-sub-menu index="2">
@@ -56,12 +56,12 @@ function handleClose(key: string, keyPath: string[]) {
         <el-menu-item index="/nav/2/oracle">
           Oracle
         </el-menu-item>
-        <el-menu-item index="/nav/2/postgresql">
+        <!-- <el-menu-item index="/nav/2/postgresql">
           PostgreSQL
         </el-menu-item>
         <el-menu-item index="/nav/2/mongodb">
           MongoDB
-        </el-menu-item>
+        </el-menu-item> -->
       </el-menu-item-group>
     </el-sub-menu>
   </el-menu>

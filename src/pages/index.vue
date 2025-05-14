@@ -1,4 +1,4 @@
 <template>
   <Logos my="4" />
-  <HelloWorld msg="Database Operation Platform" />
+  <HelloWorld msg="Click the logo to start operation" />
 </template>
