@@ -1,5 +1,5 @@
 <template>
   <div>
-    Navigation 2
+    <h1>PostgreSQL Operation</h1>
   </div>
 </template>

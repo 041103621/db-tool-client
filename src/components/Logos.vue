@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a href="https://vitejs.dev" target="_blank">
+    <!-- <a href="https://vitejs.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo">
     </a>
     <a href="https://vuejs.org/" target="_blank">
@@ -8,6 +8,15 @@
     </a>
     <a href="https://element-plus.org/" target="_blank">
       <img src="/element-plus-logo-small.svg" class="logo element-plus" alt="Element Plus logo">
+    </a> -->
+    <a href="/nav/1/item-1">
+      <img src="/oracle1.svg" class="logo" width="200" alt="Oracle logo">
+    </a>
+    <a href="/nav/2">
+      <img src="/postgresql.svg" class="logo" alt="PostgreSQL logo">
+    </a>
+    <a href="/nav/3">
+      <img src="/mongodb.svg" class="logo" alt="MongoDB logo">
     </a>
   </div>
 </template>
