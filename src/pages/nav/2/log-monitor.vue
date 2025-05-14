@@ -194,12 +194,6 @@ onUnmounted(() => {
     </div>
 
     <div class="controls">
-      <div>
-        <label for="connection-status">Status:</label>
-        <span class="status" :class="[connected ? 'connected' : 'disconnected']">
-          {{ connected ? 'Connected' : 'Disconnected' }}
-        </span>
-      </div>
       <el-button type="primary" :disabled="connected" @click="connectSocket">
         Connect
       </el-button>
@@ -210,6 +204,12 @@ onUnmounted(() => {
         Refresh
       </el-button>
       <div>
+        <label for="connection-status">Status:</label>
+        <span class="status" :class="[connected ? 'connected' : 'disconnected']">
+          {{ connected ? 'Connected' : 'Disconnected' }}
+        </span>
+      </div>
+      <div class="no-wrap">
         <label for="max-lines">Display Lines:</label>
         <el-select v-model="maxLines" @change="startLogMonitor">
           <el-option :value="100" label="100" />
@@ -219,23 +219,14 @@ onUnmounted(() => {
         </el-select>
       </div>
       <div>
-        <label for="update-interval">Update Interval(s):</label>
+        <label for="update-interval">Interval(s):</label>
         <el-input-number v-model="updateInterval" :min="1" :max="60" @change="startLogMonitor" />
       </div>
-    </div>
-
-    <div class="log-info">
       <div>
         <strong>File Path:</strong> <span>{{ logInfo.filePath || '-' }}</span>
       </div>
       <div>
         <strong>File Size:</strong> <span>{{ logInfo.fileSize || '-' }}</span>
-      </div>
-      <div>
-        <strong>Last Modified:</strong> <span>{{ logInfo.lastModified || '-' }}</span>
-      </div>
-      <div>
-        <strong>Last Update:</strong> <span>{{ logInfo.lastUpdate || '-' }}</span>
       </div>
     </div>
 
@@ -244,6 +235,9 @@ onUnmounted(() => {
 
       <!-- 右下角操作按钮 -->
       <div class="action-buttons">
+        <div>
+          <strong style="color: #fff;">Last Modified:</strong> <span style="color: #fff;">{{ logInfo.lastModified || '-' }}</span>
+        </div>
         <el-button circle type="primary" :icon="Bottom" title="Scroll to Bottom" @click="scrollToBottom" />
         <el-button circle type="success" :icon="Download" title="Download Log" @click="downloadLog" />
         <el-button circle type="danger" :icon="Delete" title="Clear Screen" @click="clearLog" />
@@ -280,7 +274,8 @@ h1 {
 
 .log-info {
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
+  align-items: center;
   margin-bottom: 10px;
   color: #555;
   flex-wrap: wrap;
@@ -320,6 +315,7 @@ h1 {
   bottom: 15px;
   right: 15px;
   display: flex;
+  align-items: center;
   gap: 10px;
   background-color: rgba(40, 44, 52, 0.6);
   padding: 8px;
@@ -338,6 +334,14 @@ h1 {
   display: flex;
   align-items: center;
   margin-right: 10px;
+}
+
+.no-wrap {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .controls label {
@@ -373,6 +377,10 @@ h1 {
   .controls .el-button {
     width: 100%;
     margin-right: 0;
+  }
+
+  .no-wrap {
+    width: 100%;
   }
 }
 </style>
