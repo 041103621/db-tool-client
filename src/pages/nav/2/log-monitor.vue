@@ -253,7 +253,7 @@ onUnmounted(() => {
       </div>
 
       <div class="log-container">
-        <pre ref="logContent" class="log-content">{{ logContent }}</pre>
+        <pre ref="logContentEl" class="log-content">{{ logContent }}</pre>
       </div>
     </div>
   </div>
