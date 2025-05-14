@@ -3,7 +3,7 @@ import { ElMessage } from 'element-plus'
 import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 
-const router = useRouter()
+// const router = useRouter()
 const employeeList = ref([])
 const loading = ref(false)
 

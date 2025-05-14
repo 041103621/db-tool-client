@@ -1,5 +1,5 @@
 <template>
   <div>
-    <h1>Oracle Operation</h1>
+    <h1>Log Monitor</h1>
   </div>
 </template>

@@ -28,7 +28,7 @@ function handleClose(key: string, keyPath: string[]) {
     <el-sub-menu index="1">
       <template #title>
         <el-icon>
-          <i i-ri-database-2-line />
+          <i i-ri-user-2-line />
         </el-icon>
         <span>Business</span>
       </template>
@@ -50,11 +50,11 @@ function handleClose(key: string, keyPath: string[]) {
           <!-- <Location /> -->
           <i i-ri-database-2-line />
         </el-icon>
-        <span>Database</span>
+        <span>Oracle</span>
       </template>
       <el-menu-item-group>
-        <el-menu-item index="/nav/2/oracle">
-          Oracle
+        <el-menu-item index="/nav/2/log-monitor">
+          Log Monitor
         </el-menu-item>
         <!-- <el-menu-item index="/nav/2/postgresql">
           PostgreSQL
