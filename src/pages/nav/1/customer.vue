@@ -12,10 +12,6 @@ async function fetchCustomerData() {
   try {
     const response = await fetch('http://localhost:5001/api/customer')
 
-    if (!response.ok) {
-      throw new Error(`HTTP ${response.status}: ${response.statusText}`)
-    }
-
     const result = await response.json()
 
     if (result.code === 200) {
@@ -31,12 +27,14 @@ async function fetchCustomerData() {
     }
     else {
       customerList.value = []
-      ElMessage.error('Failed to retrieve customer data')
+      // 显示后端返回的具体错误消息
+      const errorMessage = result.message || `Error ${result.code}: ${result.error || 'Unknown error'}`
+      ElMessage.error(errorMessage)
     }
   }
-  catch {
+  catch (error) {
     customerList.value = []
-    ElMessage.error('Network error. Please check your connection')
+    ElMessage.error(`Network error: ${error.message}`)
   }
   finally {
     loading.value = false
