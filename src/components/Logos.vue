@@ -9,7 +9,10 @@
     <a href="https://element-plus.org/" target="_blank">
       <img src="/element-plus-logo-small.svg" class="logo element-plus" alt="Element Plus logo">
     </a> -->
-    <a href="/nav/1/emp">
+    <!-- <a href="/nav/1/emp">
+      <img src="/employee-savings.svg" class="logo" width="100" alt="Oracle logo">
+    </a> -->
+    <a href="/nav/1/customer">
       <img src="/employee-savings.svg" class="logo" width="100" alt="Oracle logo">
     </a>
     <a href="/nav/2/log-monitor">

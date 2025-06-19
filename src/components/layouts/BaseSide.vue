@@ -33,8 +33,11 @@ function handleClose(key: string, keyPath: string[]) {
         <span>Business</span>
       </template>
       <el-menu-item-group>
-        <el-menu-item index="/nav/1/emp">
+        <!-- <el-menu-item index="/nav/1/emp">
           Employee
+        </el-menu-item> -->
+        <el-menu-item index="/nav/1/customer">
+          Customer
         </el-menu-item>
         <!-- <el-menu-item index="/nav/1/dept">
           Department
